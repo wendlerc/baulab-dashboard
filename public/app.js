@@ -1,6 +1,11 @@
 const POLL_INTERVAL_MS = 30000; // 30 seconds
 
 function getApiBase() {
+  // ?api=URL overrides config (useful when tunnel URL changes)
+  const params = new URLSearchParams(location.search);
+  const qs = params.get("api");
+  if (qs) return qs.replace(/\/$/, "");
+
   const base = window.GPU_DASHBOARD_API;
   if (base && base !== "https://more-saying-bent-topics.trycloudflare.com") {
     return base.replace(/\/$/, "");

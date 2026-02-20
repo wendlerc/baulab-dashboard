@@ -16,7 +16,14 @@ app = Flask(
 def add_cors(response):
     """Allow cross-origin requests for GitHub Pages frontend."""
     response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
     return response
+
+
+@app.route("/api/status", methods=["OPTIONS"])
+def api_status_options():
+    return "", 204
 
 
 @app.route("/")
@@ -24,7 +31,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/api/status")
+@app.route("/api/status", methods=["GET"])
 def api_status():
     return jsonify(get_status())
 
