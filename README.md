@@ -13,7 +13,7 @@ A web dashboard that summarizes GPU utilization across SSH-accessible nodes by r
 ### 2. Install and run
 
 ```bash
-cd baulab-dashboard  # or clone from git@github.com:wendlerc/baulab-dashboard.git
+cd baulab-dashboard  # after: git clone git@github.com:wendlerc/baulab-dashboard.git
 uv sync
 uv run python -m src.main
 ```
