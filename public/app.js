@@ -61,9 +61,9 @@ function renderNode(name, data) {
   card.innerHTML = `
     <h2>${escapeHtml(name)}</h2>
     <div class="gpu-list">${gpuRows || "<span class='text-muted'>No GPUs</span>"}</div>
-    <div class="users-hint">Hover for users</div>
-    <div class="users-tooltip">${escapeHtml(usersTip)}</div>
+    <div class="users-line">${escapeHtml(usersTip)}</div>
   `;
+  card.title = usersTip;
   return card;
 }
 
