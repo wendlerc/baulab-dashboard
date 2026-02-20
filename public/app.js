@@ -7,8 +7,7 @@ function getApiBase() {
   if (qs) return qs.replace(/\/$/, "");
 
   const base = window.GPU_DASHBOARD_API;
-  const placeholder = "https://YOUR-TUNNEL-URL.trycloudflare.com";
-  if (base && base !== placeholder) {
+  if (base) {
     return base.replace(/\/$/, "");
   }
   return ""; // same origin
