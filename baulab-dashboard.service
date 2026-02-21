@@ -15,7 +15,7 @@ RestartSec=120
 Environment=HOME=%h
 Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/bin:/bin
 
-# SSH passphrase for git push (optional). Create the env file from baulab-dashboard.env.example
+# Cloudflare tunnel token. Create the env file from baulab-dashboard.env.example
 EnvironmentFile=-%h/.config/baulab-dashboard/env
 
 StandardOutput=journal

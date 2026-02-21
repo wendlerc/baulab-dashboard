@@ -36,7 +36,7 @@ The tunnel prints a URL like `https://random-name.trycloudflare.com` — open it
 
 ### 4. Always-on (systemd, survives reboot)
 
-To run the dashboard automatically on boot with Flask + cloudflared + auto-push URL to GitHub:
+To run the dashboard automatically on boot with Flask + cloudflared:
 
 **1. Configure the env file**
 
@@ -49,18 +49,14 @@ nano ~/.config/baulab-dashboard/env
 ```
 CLOUDFLARE_TUNNEL_TOKEN=eyJ...
 CLOUDFLARE_TUNNEL_URL=https://your-tunnel.example.com
-BAULAB_SSH_PASSPHRASE_FILE=/path/to/.config/baulab-dashboard/ssh-passphrase
 ```
 
-**Option B: Quick tunnel** — requires SSH passphrase for git push:
-```
-BAULAB_SSH_PASSPHRASE_FILE=/path/to/.config/baulab-dashboard/ssh-passphrase
-```
+**Option B: Quick tunnel** — no config needed; URL is printed to the log. Use `?api=URL` when visiting to point the frontend at the tunnel.
 
 **2. Install the systemd user service**
 
 ```bash
-cd /path/to/gpu-dashboard  # or baulab-dashboard
+cd /path/to/baulab-dashboard
 
 mkdir -p ~/.config/systemd/user
 cp baulab-dashboard.service ~/.config/systemd/user/
